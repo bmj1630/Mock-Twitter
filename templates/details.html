@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="static/css/stylesheet.css">
+    <title>Message Details</title>
+</head>
+<body>
+
+    <div class= "logout"><h2><a href="/logout">Logout</a></h2></div>
+    <div class= "dashboard"><h2><a href="/dashboard">Dashboard</a></h2></div>
+
+    <h2 class="authors">{{message['first_name']}} {{message['last_name']}} Posted:</h2>
+
+    <p>Message: {{message['message']}}</p>
+        <p><a href='/like/{{message["message_id"]}}'><button>Like!</button></a></p>
+        <p><a href='/unlike/{{message["message_id"]}}'><button>Unlike!</button></a></p>
+    
+    <h2>People Who Have Liked This Thought:</h2>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        {% for user in users_who_liked %}
+        <tr>
+            <td>{{user["first_name"]}}</td>
+            <td>{{user["last_name"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

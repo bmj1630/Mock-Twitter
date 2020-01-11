@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="static/css/stylesheet.css">
+    <title>Thoughts Dashboard</title>
+</head>
+
+<body>
+    <div id= "first_part_of_wall">
+
+        <div class= "name_of_user"> <h1>Hello {{user_info["first_name"]}} {{user_info["last_name"]}}</h1> </div>
+        <div class= "logout"> <h2><a href="/logout">Logout</a></h2> </div>
+
+        {% with messages = get_flashed_messages() %}     
+            {% if messages %}                            
+                {% for message in messages %}            
+                    <p>{{message}}</p>                   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form class= "post_something" action="/thought_create" method="POST">
+            <input type="text" name="thought" size="50" placeholder="Post A Great Thought Here!" class="text_field">
+            <input type="submit" value="Post Thought" class="add_thought">
+        </form>
+        <hr>
+
+    </div>
+
+    <div class= "authors_and_messages_and_link"> 
+    {% for thought in thoughts %}
+        <p class="authors">{{thought['first_name']}} {{thought['last_name']}} :</p>
+        <p class="messages">{{thought['message']}}</p> 
+
+        <p class="link"><a href='/details/{{thought["thought_id"]}}'>View Details</a></p>
+    </div>
+
+    <div class="buttons">
+        {% if thought["thought_id"] in liked_messages %}
+            <p class="delete_button"><a href='/delete_thought/{{thought["thought_id"]}}'><button>Delete!</button></a></p>
+            <p class="unlike_button"><a href='/unlike/{{thought["thought_id"]}}'><button>Unlike!</button></a></p>
+        {% else %}
+            <p class="delete_button"><a href='/delete_thought/{{thought["thought_id"]}}'><button>Delete!</button></a></p>
+            <p class="like_button"><a href='/like/{{thought["thought_id"]}}'><button>Like!</button></a></p>
+        {% endif %}
+    </div>
+
+        {% for count in like_count %}
+            {% if count["thought_id"] == thought["thought_id"] %}
+                <h3>You Liked This Thought! {{count["likes"]}}</h3>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+</body>
+</html>

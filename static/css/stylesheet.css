@@ -1,0 +1,92 @@
+.register{
+    border: solid 5px black;
+    padding: 10px;
+    width: 500px;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 130px;
+}
+.login{
+    border: solid 5px black;
+    padding: 10px;
+    width: 500px;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 15px;
+}
+.headliner{
+    margin-left: 320px;
+    font-size: 20px;
+}
+.register h3{
+    margin-top: 1px;
+}
+.login h3{
+    margin-top: 1px;
+}
+.name_of_user{
+    color: black;
+    font-size: 15px;
+    height: 55px;
+    width: 300px;
+    display: inline-block;
+}
+.logout{
+    color: blue;
+    height: 55px;
+    font-size: 16px;
+    margin-left: 980px;
+    width: 100px;
+    display: inline-block;
+}
+.add_thought{
+    margin-left: 18px;
+    background-color:black;
+    color: whitesmoke;
+    border-radius: 5px;
+}
+.text_field{
+    width: 446px;
+}
+#first_part_of_wall hr{
+    width: 564px;
+    margin-top: 18px;
+    margin-right: 810px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+#feed{
+    margin-top: 15px;
+}
+.authors{
+    vertical-align: top;
+    width: 100px;
+    display: inline-block;
+}
+.messages{
+    border: solid 2px black;
+    padding: 3px;
+    width: 340px;
+    height: 50px; 
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.link{
+    width: 100px;
+    margin-left: 103px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.delete_button{
+    color: yellow;
+}
+
+.buttons{
+    color: blueviolet;
+}
+
+.likedthoughts{
+    border: solid 5px black;
+}
